@@ -1,5 +1,6 @@
 package com.sen.dao.impl;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.dao.DuplicateKeyException;
@@ -71,7 +72,7 @@ public class UserCourseDAOJdbcImpl implements UserCourseDAO {
 	}
 	
 	public List<UserCourse> findByUserId(Long userId) throws Exception{
-		String sql="select c.course_name ,uc.user_course_id, uc.course_cid, uc.oprtnl_flag from cm_ma_course c, cm_ma_user_course uc "
+		String sql="select c.course_name ,uc.user_course_id, uc.course_cid, uc.oprtnl_flag,uc.START_DATE,uc.COMPLETION_DATE,uc.status from cm_ma_course c, cm_ma_user_course uc "
 						+ "  where c.course_id = uc.course_cid and uc.user_cid=? and uc.oprtnl_flag='A'";
 		
 		
@@ -86,6 +87,12 @@ public class UserCourseDAOJdbcImpl implements UserCourseDAO {
 		
 		uc.setCourse(c);
 		uc.setOprtnlFlag(rs.getString("oprtnl_flag"));
+		uc.setStartDate(rs.getDate("START_DATE").toLocalDate());
+		Date completionDate = rs.getDate("COMPLETION_DATE");
+		if ( completionDate != null ) {
+			uc.setCompletionDate(completionDate.toLocalDate());
+		}
+		uc.setStatus(rs.getString("STATUS"));
 		
 		return uc;
 	});

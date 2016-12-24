@@ -13,7 +13,7 @@ public class TestUserCourseDAO {
 		
 		UserCourseDAO userCourseDAO = new UserCourseDAOJdbcImpl();
 		
-		List<UserCourse> courseList = userCourseDAO.findByUserId(2L);
+		List<UserCourse> courseList = userCourseDAO.findByUserId(5L);
 		
 		System.out.println("No of courses:" + courseList.size());
 		
