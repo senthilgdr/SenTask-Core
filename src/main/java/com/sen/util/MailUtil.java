@@ -1,6 +1,5 @@
 package com.sen.util;
 
-import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.SimpleEmail;
 
@@ -14,7 +13,7 @@ public class MailUtil {
 
 		email.setSmtpPort(587);
 
-		email.setAuthenticator(new DefaultAuthenticator("spinsenthil@gmail.com", "jalbcbrbobzxfgea"));
+		//email.setAuthenticator(new DefaultAuthenticator("spinsenthil@gmail.com", "jalbcbrbobzxfgea"));
 
 		email.setDebug(false);
 

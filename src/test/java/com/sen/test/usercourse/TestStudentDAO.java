@@ -3,7 +3,7 @@ package com.sen.test.usercourse;
 import java.util.List;
 
 import com.sen.dao.UserCourseDAO;
-import com.sen.dao.UserCourseDAOJdbcImpl;
+import com.sen.dao.impl.UserCourseDAOJdbcImpl;
 import com.sen.view.UserCourse;
 
 public class TestStudentDAO {

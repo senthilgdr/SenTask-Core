@@ -3,9 +3,9 @@ package com.sen.test.task;
 import java.sql.SQLException;
 
 import com.sen.dao.TaskDAO;
-import com.sen.dao.TaskDAOJdbcImpl;
 import com.sen.dao.UserDetailDAO;
-import com.sen.dao.UserDetailDAOJdbcImpl;
+import com.sen.dao.impl.TaskDAOJdbcImpl;
+import com.sen.dao.impl.UserDetailDAOJdbcImpl;
 import com.sen.view.TaskView;
 import com.sen.view.UserDetail;
 

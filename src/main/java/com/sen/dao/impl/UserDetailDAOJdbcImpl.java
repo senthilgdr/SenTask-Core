@@ -1,9 +1,10 @@
-package com.sen.dao;
+package com.sen.dao.impl;
 
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.sen.dao.UserDetailDAO;
 import com.sen.util.ConnectionUtil;
 import com.sen.view.UserDetail;
 import com.sen.view.UserType;
@@ -136,7 +137,7 @@ public class UserDetailDAOJdbcImpl implements UserDetailDAO {
 
 		String sql = "insert into user_account(user_type_sid,name,username,password,email_id,oprtnl_flag,created_by) values(?,?,?,?,?,?,?)";
 		int rows = jdbcTemplate.update(sql, new Object[] { ud.getUserType().getUserTypeId(), ud.getName(),
-				ud.getUserName(), ud.getPassWord(), ud.getEmailId(), ud.getCreatedBy() });
+				ud.getUserName(), ud.getPassWord(), ud.getEmailId(), "A" ,ud.getCreatedBy() });
 		System.out.println("No of Rows Inserted:" + rows);
 
 	}

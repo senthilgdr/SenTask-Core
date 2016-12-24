@@ -1,9 +1,10 @@
-package com.sen.dao;
+package com.sen.dao.impl;
 
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.sen.dao.CourseModuleDAO;
 import com.sen.util.ConnectionUtil;
 import com.sen.view.CourseDetail;
 import com.sen.view.CourseModule;

@@ -2,7 +2,7 @@ package com.sen.test.course;
 
 import java.util.List;
 
-import com.sen.dao.CourseDetailDAOJdbcImpl;
+import com.sen.dao.impl.CourseDetailDAOJdbcImpl;
 import com.sen.view.CourseDetail;
 
 public class TestSelectCourse {

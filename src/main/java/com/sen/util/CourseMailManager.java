@@ -1,6 +1,6 @@
 package com.sen.util;
 
-import com.sen.dao.UserDetailDAOJdbcImpl;
+import com.sen.dao.impl.UserDetailDAOJdbcImpl;
 import com.sen.view.UserCourse;
 import com.sen.view.UserDetail;
 

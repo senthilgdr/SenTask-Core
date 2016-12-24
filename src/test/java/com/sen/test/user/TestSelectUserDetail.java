@@ -2,7 +2,7 @@ package com.sen.test.user;
 
 import java.util.List;
 
-import com.sen.dao.UserDetailDAOJdbcImpl;
+import com.sen.dao.impl.UserDetailDAOJdbcImpl;
 import com.sen.view.UserDetail;
 
 

@@ -1,6 +1,6 @@
 package com.sen.test.usertype;
 
-import com.sen.dao.UserTypeDAOJdbcImpl;
+import com.sen.dao.impl.UserTypeDAOJdbcImpl;
 import com.sen.view.UserType;
 
 public class TestFindOneUserType {

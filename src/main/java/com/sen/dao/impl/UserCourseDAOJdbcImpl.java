@@ -1,9 +1,10 @@
-package com.sen.dao;
+package com.sen.dao.impl;
 
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.sen.dao.UserCourseDAO;
 import com.sen.util.ConnectionUtil;
 import com.sen.view.CourseDetail;
 import com.sen.view.UserCourse;
@@ -67,7 +68,7 @@ public class UserCourseDAOJdbcImpl implements UserCourseDAO {
 						+ "  where c.course_id = uc.course_cid and uc.user_cid=? and uc.oprtnl_flag='A'";
 		
 		
-		List<UserCourse> userCourse = (List<UserCourse>) jdbcTemplate.queryForObject(sql,new Object[]{userId}, (rs,rows) -> {
+		List<UserCourse> userCourse = jdbcTemplate.query(sql,new Object[]{userId}, (rs,rows) -> {
 			
 		UserCourse uc=new UserCourse();
 		uc.setId(rs.getLong("user_course_id"));
@@ -94,7 +95,7 @@ public class UserCourseDAOJdbcImpl implements UserCourseDAO {
 			+ " uu.user_sid = uc.user_cid AND uc.course_cid=? AND uc.oprtnl_flag='A'";
 	
 		
-		List<UserCourse> list= (List<UserCourse>) jdbcTemplate.queryForObject(sql,new Object[]{courseId}, (rs,rows) -> {
+		List<UserCourse> list= jdbcTemplate.query(sql,new Object[]{courseId}, (rs,rows) -> {
 		
 				
 			UserCourse uc=new UserCourse();

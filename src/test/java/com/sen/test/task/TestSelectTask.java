@@ -3,7 +3,7 @@ package com.sen.test.task;
 import java.util.List;
 
 import com.sen.dao.TaskDAO;
-import com.sen.dao.TaskDAOJdbcImpl;
+import com.sen.dao.impl.TaskDAOJdbcImpl;
 import com.sen.view.TaskView;
 
 public class TestSelectTask {

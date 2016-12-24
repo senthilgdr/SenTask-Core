@@ -3,7 +3,7 @@ package com.sen.test.usertype;
 import java.sql.SQLException;
 
 import com.sen.dao.UserTypeDAO;
-import com.sen.dao.UserTypeDAOJdbcImpl;
+import com.sen.dao.impl.UserTypeDAOJdbcImpl;
 import com.sen.view.UserType;
 
 public class TestInsertUserType {
