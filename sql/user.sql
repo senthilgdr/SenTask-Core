@@ -1,0 +1,38 @@
+CREATE TABLE `USER_TYPE` (
+  `ID` int(11) NOT NULL,
+  `USER_TYPE` varchar(50) NOT NULL,
+`OPRTNL_FLAG` char(1) DEFAULT 'A',
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `USER_TYPE` (`USER_TYPE`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `USER_TYPE` */
+
+insert  into `USER_TYPE`(`ID`,`USER_TYPE`,`OPRTNL_FLAG`) values 
+(1,'Admin','A'),
+(2,'Trainer','A'),,
+(3,'Student','A'); 
+ 
+CREATE TABLE `USER_ACCOUNT` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `USER_TYPE_SID` int(11) NOT NULL DEFAULT '3',
+  `NAME` varchar(50) NOT NULL,
+  `USERNAME` varchar(50) NOT NULL,
+  `PASSWORD` varchar(50) NOT NULL,
+  `EMAIL_ID` varchar(100) DEFAULT NULL,
+  `OPRTNL_FLAG` char(1) DEFAULT 'A',
+  `CREATED_BY` int(10) DEFAULT '1',
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `USERNAME` (`USERNAME`),
+  KEY `USER_TYPE_CID_FK` (`USER_TYPE_SID`),
+  CONSTRAINT `USER_TYPE_CID_FK` FOREIGN KEY (`USER_TYPE_SID`) REFERENCES `USER_TYPE` (`USER_TYPE_SID`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+
+/*Data for the table `USER_ACCOUNT` */
+
+insert  into `USER_ACCOUNT`(`ID`,`USER_TYPE_SID`,`NAME`,`USERNAME`,`PASSWORD`,`EMAIL_ID`,`OPRTNL_FLAG`,`CREATED_BY`) values 
+(1,3,'system','system','system',NULL,'I',1),
+(23,1,'naresh','naresh','naresh','naresh','A',NULL);
+
+
+
