@@ -62,11 +62,11 @@ public class UserCourseDAOJdbcImpl implements UserCourseDAO {
 	}
 		
 
-	public void disableEnrollCourse (UserCourse uc ) throws Exception {
+	public void disableEnrollCourse (Long userCourseId ) throws Exception {
 		
 					
 			String sql="update cm_ma_user_course set oprtnl_flag='I' where user_course_id= ? and oprtnl_flag='A'";
-			int rows = jdbcTemplate.update(sql, new Object[] { uc.getId() });
+			int rows = jdbcTemplate.update(sql, new Object[] { userCourseId});
 			System.out.println("No of Rows Disable:" + rows);	
 		
 	}

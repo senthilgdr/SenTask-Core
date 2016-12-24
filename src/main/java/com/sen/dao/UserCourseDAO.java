@@ -10,7 +10,7 @@ public interface UserCourseDAO {
 
 	UserCourse findOne(Long userCourseId) throws Exception;
 
-	void disableEnrollCourse(UserCourse uc) throws Exception;
+	void disableEnrollCourse(Long userCourseId) throws Exception;
 
 	List<UserCourse> findByUserId(Long userId) throws Exception;
 
