@@ -2,6 +2,7 @@ package com.sen.dao.impl;
 
 import java.util.List;
 
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.sen.dao.UserCourseDAO;
@@ -17,9 +18,15 @@ public class UserCourseDAOJdbcImpl implements UserCourseDAO {
 
 	public void courseEnroll(UserCourse userCourse) throws Exception {
 		
-		String sql="insert into cm_ma_user_course(user_cid,course_cid,oprtnl_flag) values(?,?,?)";
-		int rows = jdbcTemplate.update(sql, new Object[] { userCourse.getUserDetail().getUserId(), userCourse.getCourse().getCourseId(),userCourse.getOprtnlFlag()});
+		try
+		{
+		String sql="insert into cm_ma_user_course(user_cid,course_cid) values(?,?)";
+		int rows = jdbcTemplate.update(sql, new Object[] { userCourse.getUserDetail().getUserId(), userCourse.getCourse().getCourseId()});
 		System.out.println("No of Rows Inserted:" + rows);
+		}
+		catch(DuplicateKeyException e) {
+			throw new Exception("User already enrolled this course");
+		}
 				
 	}
 	
