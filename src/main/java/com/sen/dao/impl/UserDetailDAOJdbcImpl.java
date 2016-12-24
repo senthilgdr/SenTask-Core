@@ -2,6 +2,7 @@ package com.sen.dao.impl;
 
 import java.util.List;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.sen.dao.UserDetailDAO;
@@ -57,7 +58,12 @@ public class UserDetailDAOJdbcImpl implements UserDetailDAO {
 		String sql = "select uu.id,uu.user_type_sid,u.user_type,uu.name,uu.username,uu.password,uu.email_id,uu.oprtnl_flag,uu.created_by from user_account uu,user_type u "
 				+ "  where uu.user_type_sid=u.id and username=? and password=? and uu.oprtnl_flag='A'";
 
-		UserDetail userDeatil = jdbcTemplate.queryForObject(sql,new Object[]{ userName, passWord }, (rs,rows) -> {
+		UserDetail userDeatil = null;
+		
+		try
+		{
+			userDeatil = jdbcTemplate.queryForObject(sql,new Object[]{ userName, passWord }, (rs,rows) -> {
+		
 			
 			UserDetail ud = new UserDetail();
 			ud.setUserId(rs.getLong("id"));
@@ -75,6 +81,10 @@ public class UserDetailDAOJdbcImpl implements UserDetailDAO {
 			return ud;
 
 		});
+		}
+		catch(EmptyResultDataAccessException e) {
+			//e.printStackTrace();
+		}
 
 		return userDeatil;
 	}
